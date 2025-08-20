@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashi Vishwanath Temple - Live Darshan | E-Tirtha</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .stream-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: Arial, sans-serif;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            color: white;
+        }
+
+        .loading-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ff6b6b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .stream-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 1000;
+            text-align: right;
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ff0000;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .aarti-schedule {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-align: center;
+            z-index: 1000;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .aarti-schedule span {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h2>Connecting to Live Stream...</h2>
+            <p>Please wait while we connect you to the live darshan</p>
+            <p style="font-size: 14px; opacity: 0.8;">🙏 Om Namah Shivaya 🙏</p>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="kashi-vishwanath.html" class="back-btn">
+        ← Back to Temple Page
+    </a>
+
+    <!-- Stream Info -->
+    <div class="stream-info">
+        <div><span class="live-indicator"></span> LIVE</div>
+        <div style="font-size: 12px; opacity: 0.8;">Kashi Vishwanath Temple</div>
+    </div>
+
+    <!-- Live Stream Container -->
+    <div class="stream-container">
+        <iframe
+            src="https://www.youtube.com/embed/E5kX-7CFi8c?autoplay=1&rel=0&showinfo=0&controls=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Aarti Schedule -->
+    <div class="aarti-schedule">
+        Aarti Timings: 
+        <span>Mangala Aarti: 3:00 AM</span> | 
+        <span>Bhog Aarti: 11:30 AM</span> | 
+        <span>Sandhya Aarti: 7:00 PM</span>
+    </div>
+
+    <script>
+        // Hide loading screen when stream is ready
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.display = 'none';
+            }, 3000); // Show loading screen for 3 seconds
+        });
+    </script>
+</body>
+</html> 

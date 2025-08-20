@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #FF9933;
+    --secondary-color: #FF8000;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --error-color: #ff3333;
+    --accent-color: #FF7F24;
+    --input-bg: #2d2d2d;
+    --input-border: #404040;
+    --input-text: #ffffff;
+    --box-bg: #242424;
+    --text-muted: #999;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+}
+
+.login-box {
+    background: var(--box-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: 0 auto;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Specific style for signup form */
+#signupForm.login-form {
+    width: 100%;
+}
+
+.signup-box {
+    max-width: 500px !important;  /* Wider than login box */
+}
+
+@keyframes fadeIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-header h2 {
+    color: var(--text-color);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: var(--text-muted);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field i:not(.password-toggle) {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid var(--input-border);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+.input-field input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.input-field input:focus + i {
+    color: var(--primary-color);
+}
+
+.input-field input[type="password"] {
+    padding-right: 45px; /* Add space for the eye icon */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.password-toggle:hover {
+    color: var(--primary-color);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.forgot-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: var(--secondary-color);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn:hover {
+    background: var(--secondary-color);
+}
+
+.login-btn.loading span {
+    opacity: 0;
+}
+
+.button-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    opacity: 0;
+    display: none;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.login-btn.loading .button-loader {
+    opacity: 1;
+    display: block;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.signup-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px;
+    }
+
+    .login-header h2 {
+        font-size: 1.5em;
+    }
+
+    .input-field input {
+        padding: 12px 12px 12px 40px;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+/* Error state */
+.input-field.error input {
+    border-color: var(--error-color);
+}
+
+.input-field.error i {
+    color: var(--error-color);
+}
+
+.terms-privacy {
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.terms-privacy label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.terms-privacy input[type="checkbox"] {
+    margin-top: 3px;
+}
+
+.terms-privacy a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.terms-privacy a:hover {
+    color: var(--secondary-color);
+}
+
+/* Password strength indicator */
+.password-strength {
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    background: #ddd;
+}
+
+.password-strength.weak {
+    background: var(--error-color);
+    width: 33.33%;
+}
+
+.password-strength.medium {
+    background: var(--accent-color);
+    width: 66.66%;
+}
+
+.password-strength.strong {
+    background: var(--primary-color);
+    width: 100%;
+}
+
+/* Update existing responsive design */
+@media (max-width: 480px) {
+    .terms-privacy label {
+        font-size: 13px;
+    }
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 5px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure video has no default controls and proper background */
+video.logo {
+    background: transparent;
+}
+
+.input-field input::placeholder {
+    color: var(--text-muted);
+} 

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagannath Temple - E-Tirtha</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="temple-page.css">
+    <script type="module" src="login/firebaseConfig.js"></script>
+    <script type="module" src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization&callback=initMap"></script>
+    <script src="crowd-data.js"></script>
+</head>
+<body class="temple-page jagannath">
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="assets/Logo.gif" alt="E-TIRTHA Logo" class="gif-logo">
+            <h2 class="logo-text">E-TIRTHA</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#temples">Temples</a></li>
+                <li><a href="index.html#spiritual-quote-section">Spiritual Quotes</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Contact</a>
+                    <div class="dropdown-content">
+                        <div class="contact-item">
+                            <strong>Devanshu Gohad</strong>
+                            <a href="mailto:devgohad1611@gmail.com">devgohad1611@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Vrushabh Gadhave</strong>
+                            <a href="mailto:vrushabhg.143@gmail.com">vrushabhg.143@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Chanakya Misal</strong>
+                            <a href="mailto:chanakyam.aiml22@sbjit.edu.in">chanakyam.aiml22@sbjit.edu.in</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Kshitij Patil</strong>
+                            <a href="mailto:kshitijpatil5882@gmail.com">kshitijpatil5882@gmail.com</a>
+                        </div>
+                    </div>
+                </li>
+                <li id="auth-links">
+                    <a href="login/index.html" class="login-link">Login | Sign Up</a>
+                    <a href="#" class="logout-link" style="display: none;">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Temple Hero Section -->
+    <div class="temple-hero">
+        <h1>Jagannath Temple</h1>
+        <p class="temple-location">Puri, Odisha, India</p>
+    </div>
+
+    <!-- Main Content -->
+    <main class="temple-content">
+        <section class="temple-info">
+            <div class="temple-description">
+                <h2>About the Temple</h2>
+                <p>The Jagannath Temple in Puri is one of the most revered temples in India, dedicated to Lord Jagannath, a form of Lord Krishna. It is one of the Char Dham pilgrimage sites and is famous for its annual Rath Yatra festival.</p>
+                
+                <h3>Historical Significance</h3>
+                <p>The temple was built in the 12th century by King Anantavarman Chodaganga Deva of the Eastern Ganga dynasty. The temple is mentioned in various Puranas and has been a significant pilgrimage site for centuries. The temple's architecture reflects the Kalinga style.</p>
+
+                <h3>Temple Architecture</h3>
+                <p>The temple complex features a magnificent 65-meter high main tower and several smaller towers. The temple is built in the Kalinga style of architecture with intricate carvings and sculptures. The main temple has three deities: Lord Jagannath, his brother Balabhadra, and sister Subhadra.</p>
+
+                <h3>Visiting Hours & Guidelines</h3>
+                <ul>
+                    <li>Opening Hours: 5:00 AM to 11:00 PM</li>
+                    <li>Aarti Timings: 
+                        <ul>
+                            <li>Mangala Aarti: 5:00 AM - 6:00 AM</li>
+                            <li>Madhyanha Aarti: 11:00 AM - 12:00 PM</li>
+                            <li>Sandhya Aarti: 7:00 PM - 8:00 PM</li>
+                        </ul>
+                    </li>
+                    <li>Special Puja bookings available</li>
+                </ul>
+            </div>
+
+            <div class="temple-image">
+                <img src="https://www.templedairy.in/wp-content/uploads/2017/06/Lord-Jagannath-Temple-Puri-matchholiday.jpg" alt="Jagannath Temple Main View">
+            </div>
+        </section>
+
+        <section class="interactive-features">
+            <div class="feature-buttons">
+                <a href="live-darshan.html" class="feature-btn watch-live">
+                    <span class="icon">🔴</span>
+                    Get Live Darshan
+                </a>
+                <a href="jagannath-360.html" class="feature-btn virtual-tour" target="_blank">
+                    <span class="icon">🔄</span>
+                    360° Virtual Tour
+                </a>
+            </div>
+        </section>
+
+        <!-- Crowd Information Section -->
+        <section class="crowd-info-section">
+            <h2>More Info</h2>
+            <div class="crowd-info-container">
+                <div class="crowd-card full-width">
+                    <h3>Popular Visiting Months</h3>
+                    <div class="monthly-visits">
+                        <div class="month-bar">
+                            <span class="month">Jan</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 60%"></div>
+                            </div>
+                            <span class="percentage">60%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Feb</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 70%"></div>
+                            </div>
+                            <span class="percentage">70%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Mar</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Apr</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 85%"></div>
+                            </div>
+                            <span class="percentage">85%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">May</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 90%"></div>
+                            </div>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Jun</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 95%"></div>
+                            </div>
+                            <span class="percentage">95%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Jul</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 100%"></div>
+                            </div>
+                            <span class="percentage">100%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Aug</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 95%"></div>
+                            </div>
+                            <span class="percentage">95%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Sep</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 90%"></div>
+                            </div>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Oct</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 85%"></div>
+                            </div>
+                            <span class="percentage">85%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Nov</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 75%"></div>
+                            </div>
+                            <span class="percentage">75%</span>
+                        </div>
+                        <div class="month-bar">
+                            <span class="month">Dec</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 65%"></div>
+                            </div>
+                            <span class="percentage">65%</span>
+                        </div>
+                    </div>
+                    <div class="crowd-tips">
+                        <h4>Best Time to Visit</h4>
+                        <p>Early morning (5:00 AM - 7:00 AM) for less crowd. Avoid weekends and major festivals like Rath Yatra for a more peaceful experience. The temple is most crowded during the summer months (April-July).</p>
+                    </div>
+                </div>
+                <div class="accessibility-info">
+                    <h3>Accessibility & Travel Info</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="icon">♿</span>
+                            <div class="info-content">
+                                <h4>Divyang Friendly</h4>
+                                <p>Limited accessibility due to stairs and narrow passages. Basic wheelchair access available. Special arrangements can be requested for elderly and disabled devotees.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">🚗</span>
+                            <div class="info-content">
+                                <h4>Vehicle Access</h4>
+                                <p>Parking available for cars and two-wheelers near temple. Temple premises are vehicle-free. Auto-rickshaws available for last mile connectivity.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">💰</span>
+                            <div class="info-content">
+                                <h4>Cheapest Way to Visit</h4>
+                                <p>Local bus from Puri railway station (₹10-15). Auto-rickshaw from city center (₹50-70). Shared auto from nearby areas (₹20-30).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="assets/Logo.gif" alt="E-TIRTHA Logo" class="footer-logo">
+                <p class="footer-description">Experience the divine from anywhere in the world.</p>
+                <p>&copy; 2025 E-TIRTHA. All Rights Reserved.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#temples">Temples</a></li>
+                    <li><a href="#spiritual-quote-section">Spiritual Quotes</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Team</h4>
+                <ul class="contact-list">
+                    <li><strong>Devanshu Gohad</strong><br>Email: devgohad1611@gmail.com</li>
+                    <li><strong>Vrushabh Gadhave</strong><br>Email: vrushabhg.143@gmail.com</li>
+                    <li><strong>Chanakya Misal</strong><br>Email: chanakyam.aiml22@sbjit.edu.in</li>
+                    <li><strong>Kshitij Patil</strong><br>Email: kshitijpatil5882@gmail.com</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Subscribe to our emails</h4>
+                <p>Join our email list for exclusive Darshan updates and spiritual news.</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">&#8594;</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

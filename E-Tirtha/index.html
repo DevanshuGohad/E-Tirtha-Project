@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#FFD700">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Etirtha - Virtual Temple Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="login/firebaseConfig.js"></script>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <!-- GIF Logo -->
+            <img src="assets/Logo.gif" alt="E-TIRTHA Logo" class="gif-logo">
+            <!-- Swiping Title Text -->
+            <h2 class="logo-text">E-TIRTHA</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Temples</a>
+                    <div class="dropdown-content">
+                        <div class="temple-item">
+                            <strong>Shri Ram Mandir</strong>
+                            <a href="ram-mandir.html"target="_blank">Ayodhya, India</a>
+                        </div>
+                        <div class="temple-item">
+                            <strong>Kashi Vishwanath</strong>
+                            <a href="kashi-vishwanath.html"target="_blank">Varanasi, India</a>
+                        </div>
+                        <div class="temple-item">
+                            <strong>Tirupati Balaji</strong>
+                            <a href="tirupati-balaji.html"target="_blank">Andhra Pradesh, India</a>
+                        </div>
+                        <div class="temple-item">
+                            <strong>Trimbakeshwar Temple</strong>
+                            <a href="trimbakeshwar.html"target="_blank">Maharashtra, India</a>
+                        </div>
+                        <div class="temple-item">
+                            <strong>Jagannath Temple</strong>
+                            <a href="jagannath.html"target="_blank">Odisha, India</a>
+                        </div>
+                        <div class="temple-item">
+                            <strong>ISKCON Temple</strong>
+                            <a href="iskcon.html"target="_blank">Bangalore, India</a>
+                        </div>
+                        <div class="temple-item">
+                            <strong>Kedarnath Temple</strong>
+                            <a href="kedarnath.html"target="_blank">Uttrakhand, India</a>
+                        </div>
+                        <div class="temple-item">
+                            <strong>Golden Temple</strong>
+                            <a href="golden-temple.html"target="_blank">Punjab, India</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#spiritual-quote-section">Spiritual Quotes</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Contact</a>
+                    <div class="dropdown-content">
+                        <div class="contact-item">
+                            <strong>Devanshu Gohad</strong>
+                            <a href="mailto:devgohad1611@gmail.com">devgohad1611@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Vrushabh Gadhave</strong>
+                            <a href="mailto:vrushabhg.143@gmail.com">vrushabhg.143@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Chanakya Misal</strong>
+                            <a href="mailto:chanakyam.aiml22@sbjit.edu.in">chanakyam.aiml22@sbjit.edu.in</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Kshitij Patil</strong>
+                            <a href="mailto:kshitijpatil5882@gmail.com">kshitijpatil5882@gmail.com</a>
+                        </div>
+                    </div>
+                </li>
+                <li id="auth-links">
+                    <a href="login/index.html" class="login-link">Login | Sign Up</a>
+                    <a href="#" class="logout-link" style="display: none;">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carousel -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <img src="https://www.m1key.me/photography/indian_temples/indian_temples_18.jpg" alt="Temple 1">
+                        <div class="slide-overlay">
+                            <h3>Divine Temples</h3>
+                            <p>Experience the spiritual journey</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <img src="https://c.wallhere.com/photos/81/18/light_chicago_colors_night_temple_illinois_nikon_il-906622.jpg!d" alt="Temple 2">
+                        <div class="slide-overlay">
+                            <h3>Sacred Places</h3>
+                            <p>Discover ancient wisdom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <img src="https://cdn.pixabay.com/photo/2020/01/21/08/11/indian-temple-4782312_1280.jpg" alt="Temple 3">
+                        <div class="slide-overlay">
+                            <h3>Spiritual Heritage</h3>
+                            <p>Connect with divinity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modern Controls -->
+            <div class="carousel-controls">
+                <div class="nav-controls">
+                    <div class="nav-area prev" onclick="prevSlide()"></div>
+                    <div class="nav-area next" onclick="nextSlide()"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <!-- Temple Cards -->
+    <h2>Explore Temples</h2>
+    <div class="temple-container">
+        <div class="temple-card temple1">
+            <div class="content">
+              <h3>Shri Ram Mandir</h3>
+              <p>Ayodhya, India</p>
+              <a href="ram-mandir.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+          </div>
+        
+        <div class="temple-card temple2">
+            <div class="content">
+                <h3>Kashi Vishwanath</h3>
+                <p>Varanasi, India</p>
+                <a href="kashi-vishwanath.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+        </div>
+    
+        <div class="temple-card temple3">
+            <div class="content">
+                <h3>Tirupati Balaji</h3>
+                <p>Andhra Pradesh, India</p>
+                <a href="tirupati-balaji.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+        </div>
+
+        <div class="temple-card temple4">
+            <div class="content">
+                <h3>Trimbakeshwar Temple</h3>
+                <p>Maharashtra, India</p>
+                <a href="trimbakeshwar.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+        </div>
+
+        <div class="temple-card temple5">
+            <div class="content">
+                <h3>Jagannath Temple</h3>
+                <p>Odisha, India</p>
+                <a href="jagannath.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+        </div>
+
+        <div class="temple-card temple6">
+            <div class="content">
+                <h3>ISKCON Temple</h3>
+                <p>Banglore, India</p>
+                <a href="iskcon.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+        </div>
+
+        <div class="temple-card temple7">
+            <div class="content">
+                <h3>Kedarnath Temple</h3>
+                <p>Uttrakhand, India</p>
+                <a href="kedarnath.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+        </div>
+
+        <div class="temple-card temple8">
+            <div class="content">
+                <h3>Golden Temple</h3>
+                <p>Punjab, india</p>
+                <a href="golden-temple.html" class="know-more-btn">Tap to Know More</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Spiritual Quote -->
+     <br>
+    <section id="spiritual-quote-section" class="spiritual-quote">
+        <h2>Today's Spiritual Wisdom</h2>
+        <p id="daily-quote">Loading...</p>
+    </section>
+    <br>
+
+    <!-- YouTube Video Embed -->
+    <section class="video-section">
+        <h2>Experience the Divine</h2>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/BLlTFapgvOo?si=9IRdOFR3LAx5YKuU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+
+            <!-- Logo & Description -->
+            <div class="footer-section">
+              <img src="assets/Logo.gif" alt="E-TIRTHA Logo" class="footer-logo">
+              <p class="footer-description">Experience the divine from anywhere in the world.</p><br>
+              <p>&copy; 2025 E-TIRTHA. All Rights Reserved.</p>
+            </div>
+        
+            <!-- Quick Links -->
+            <div class="footer-section">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Temples</a></li>
+                <li><a href="#spiritual-quote-section">Spiritual Quotes</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+        
+            <!-- Contact Information -->
+            <div class="footer-section">
+              <h4>Contact Team</h4>
+              <ul class="contact-list">
+                <li><strong>Devanshu Gohad</strong><br>Email: devgohad1611@gmail.com</li>
+                <li><strong>Vrushabh Gadhave</strong><br>Email: vrushabhg.143@gmail.com</li>
+                <li><strong>Chanakya Misal</strong><br>Email: chanakyam.aiml22@sbjit.edu.in</li>
+                <li><strong>Kshitij Patil</strong><br>Email: kshitijpatil5882@gmail.com</li>
+              </ul>
+            </div>
+        
+            <!-- Newsletter Subscription -->
+            <div class="footer-section">
+              <h4>Subscribe to our emails</h4>
+              <p>Join our email list for exclusive Darshan updates and spiritual news.</p>
+              <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">&#8594;</button>
+              </form>
+            </div>
+        
+          </div>
+        
+          <!-- Bottom Line -->
+         
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        let slideInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function updateSlide() {
+            const track = document.querySelector('.carousel-track');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots and slide overlays
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+        }
+
+        // Touch events for mobile
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlide();
+            });
+        });
+
+        // Start automatic slideshow
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Stop slideshow on hover/touch
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            startSlideshow();
+        });
+
+        // Initialize slideshow
+        updateSlide();
+        startSlideshow();
+
+        // Scroll Animation
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselSlides = document.querySelectorAll('.carousel-slide');
+        const carouselImages = document.querySelectorAll('.carousel-slide img');
+        
+        let lastScrollTop = 0;
+        let isAnimating = false;
+
+        function handleScroll() {
+            const rect = carouselContainer.getBoundingClientRect();
+            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const isScrollingDown = currentScrollTop > lastScrollTop;
+            
+            if (!isInView && isScrollingDown && !isAnimating) {
+                carouselContainer.classList.add('scroll-animate');
+                carouselSlides.forEach(slide => slide.classList.add('scroll-animate'));
+                carouselImages.forEach(img => img.classList.add('scroll-animate'));
+                isAnimating = true;
+            } else if (isInView && isAnimating) {
+                carouselContainer.classList.remove('scroll-animate');
+                carouselSlides.forEach(slide => slide.classList.remove('scroll-animate'));
+                carouselImages.forEach(img => img.classList.remove('scroll-animate'));
+                isAnimating = false;
+            }
+            
+            lastScrollTop = currentScrollTop;
+        }
+
+        // Add scroll event listener with throttling
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initial check
+        handleScroll();
+    </script>
+
+</body>
+</html>

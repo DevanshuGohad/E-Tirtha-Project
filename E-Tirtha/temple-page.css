@@ -1,0 +1,528 @@
+/* Temple Page Specific Styles */
+
+
+.temple-page {
+    background-color: #121212;
+    color: white;
+}
+
+/* Hero Section */
+.temple-hero {
+    position: relative;
+    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+                url('assets/kashi-vishwanath-bg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.temple-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease-out;
+    position: relative;
+    background: linear-gradient(90deg, #ffd700, #ffa500, #ffd700);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1s ease-out, shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.temple-hero .temple-location {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Main Content */
+.temple-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.temple-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.3),
+                inset 0 0 20px rgba(255, 165, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 165, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: glowPulse 3s infinite;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 20px rgba(255, 165, 0, 0.3), inset 0 0 20px rgba(255, 165, 0, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(255, 165, 0, 0.4), inset 0 0 25px rgba(255, 165, 0, 0.3); }
+    100% { box-shadow: 0 0 20px rgba(255, 165, 0, 0.3), inset 0 0 20px rgba(255, 165, 0, 0.2); }
+}
+
+.temple-description {
+    animation: fadeIn 1s ease-out;
+}
+
+.temple-description h2 {
+    color: #ffd700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    animation: titleGlow 2s infinite;
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+    50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+    100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+}
+
+.temple-description h3 {
+    color: #ffa500;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.temple-description h3:hover {
+    transform: translateX(10px);
+}
+
+.temple-description p {
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.temple-description p:hover {
+    opacity: 0.9;
+}
+
+.temple-description ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.temple-description ul li {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.temple-description ul ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.temple-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+    border: 1px solid rgba(255, 165, 0, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.temple-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.temple-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Interactive Features */
+.interactive-features {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-btn {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.feature-btn:hover::before {
+    left: 100%;
+}
+
+.feature-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.feature-btn .icon {
+    margin-right: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.watch-live {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+}
+
+.virtual-tour {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .temple-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .temple-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .temple-hero {
+        height: 60vh;
+    }
+
+    .temple-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .temple-hero .temple-location {
+        font-size: 1.2rem;
+    }
+
+    .feature-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .temple-hero h1 {
+        font-size: 2rem;
+    }
+
+    .temple-content {
+        padding: 1rem;
+    }
+
+    .temple-info {
+        padding: 1rem;
+    }
+}
+
+/* Crowd Information Section Styles */
+.crowd-info-section {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.crowd-info-section h2 {
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.crowd-info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.crowd-card, .accessibility-info {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 165, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.crowd-card h3, .accessibility-info h3 {
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.monthly-visits {
+    margin: 1.5rem 0;
+    flex: 1;
+}
+
+.month-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.month {
+    width: 40px;
+    color: #FFD700;
+    font-weight: 500;
+}
+
+.bar-container {
+    flex: 1;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.percentage {
+    width: 50px;
+    color: #FFD700;
+    text-align: right;
+    font-weight: 500;
+}
+
+.crowd-tips {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.crowd-tips h4 {
+    color: #FFD700;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.crowd-tips p {
+    color: #fff;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex: 1;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+    border: 1px solid rgba(255, 165, 0, 0.1);
+}
+
+.info-item:hover {
+    transform: translateY(-2px);
+}
+
+.info-item .icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    min-width: 40px;
+    text-align: center;
+    color: #FFD700;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-content h4 {
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.info-content p {
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .crowd-info-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .crowd-card, .accessibility-info {
+        padding: 1.5rem;
+    }
+
+    .month-bar {
+        gap: 0.8rem;
+    }
+
+    .month {
+        width: 35px;
+        font-size: 0.9rem;
+    }
+
+    .percentage {
+        width: 45px;
+        font-size: 0.9rem;
+    }
+
+    .info-grid {
+        gap: 1rem;
+    }
+
+    .info-item {
+        padding: 1rem;
+    }
+
+    .info-item .icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .crowd-info-section {
+        padding: 1.5rem;
+    }
+
+    .crowd-card, .accessibility-info {
+        padding: 1.2rem;
+    }
+
+    .month-bar {
+        gap: 0.5rem;
+    }
+
+    .month {
+        width: 30px;
+        font-size: 0.85rem;
+    }
+
+    .percentage {
+        width: 40px;
+        font-size: 0.85rem;
+    }
+} 

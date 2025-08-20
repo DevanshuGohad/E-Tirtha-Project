@@ -1,0 +1,997 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    background-color: #121212; /* Charcoal Black */
+    color: #F5F5DC;            /* Soft Beige for general text */
+}
+
+/* Header */
+header {
+    background-color: #4B1D1D; /* Deep Maroon */
+    color: #FFFFFF;            /* White text */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.gif-logo {
+    height: 60px;
+    width: auto;
+    animation: pulseLogo 2s infinite;
+}
+
+@keyframes pulseLogo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    color: #FFD700;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ffd700, #ffa500, #ffd700);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFD54F;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #FFD700;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #FFA000; 
+}
+
+/* Carousel */
+.carousel-container {
+    padding-top: 30px;
+    position: relative;
+    max-width: 100%;
+    margin: 100px auto 40px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+    transform-origin: center;
+    will-change: transform, opacity;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    transform-origin: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    height: 500px; /* Fixed height for slides */
+}
+
+.slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 20%,
+        rgba(0, 0, 0, 0.4) 40%,
+        rgba(0, 0, 0, 0.2) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    color: white;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.slide-overlay h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.slide-overlay p {
+    font-size: 1.2rem;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+}
+
+/* Modern Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.nav-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.nav-area {
+    width: 15%;
+    height: 100%;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-area:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-area.prev {
+    left: 0;
+}
+
+.nav-area.next {
+    right: 0;
+}
+
+/* Remove touch areas and controls */
+.touch-areas,
+.touch-area,
+.touch-indicator {
+    display: none;
+}
+
+/* Scroll Animation */
+.carousel-container.scroll-animate {
+    transform: scale(0.8) rotate(-5deg) translateY(100px);
+    opacity: 0;
+    filter: blur(10px);
+}
+
+.carousel.scroll-animate {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.carousel-slide.scroll-animate {
+    transform: scale(0.9) rotate(-3deg);
+    filter: brightness(0.7);
+}
+
+.carousel-slide.scroll-animate img {
+    transform: scale(1.1);
+    filter: blur(5px);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .slide-overlay h3 {
+        font-size: 2rem;
+    }
+    
+    .slide-overlay p {
+        font-size: 1rem;
+    }
+    
+    .carousel-slide {
+        height: 400px;
+    }
+
+    .nav-area {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .slide-overlay h3 {
+        font-size: 1.5rem;
+    }
+    
+    .slide-overlay p {
+        font-size: 0.9rem;
+    }
+    
+    .slide-overlay {
+        padding: 1rem;
+    }
+    .carousel-slide {
+        height: 300px;
+    }
+
+    .nav-area {
+        width: 25%;
+    }
+}
+
+/* Remove old control button styles */
+.control-btn, .control-buttons {
+    display: none;
+}
+
+/* Add Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Temple Cards */
+.temple-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .temple-card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+    background-color: #1E1E1E;
+    border: 1px solid #FFD700;
+    transition: all 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Temple Card Background Images */
+.temple1::before { 
+    background-image: url('https://img.freepik.com/premium-photo/beautiful-cinematic-shot-ram-mandir-ayodhya_849906-13668.jpg?w=2000'); 
+}
+.temple2::before { 
+    background-image: url('https://th.bing.com/th/id/OIP.qPbF5RVxL6sK4MYHeCXTSQHaE7?w=239&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7'); 
+}
+.temple3::before { 
+    background-image: url('https://tfiglobalnews.com/wp-content/uploads/2022/12/Tirupati_Balaji_temple_complex.jpg'); 
+}
+.temple4::before { 
+    background-image: url('https://curlytales.com/wp-content/uploads/2022/12/trimbakeshwar-mandir-0.jpg'); 
+}
+.temple5::before { 
+    background-image: url('https://www.templedairy.in/wp-content/uploads/2017/06/Lord-Jagannath-Temple-Puri-matchholiday.jpg'); 
+}
+.temple6::before { 
+    background-image: url('https://www.astroved.com/astropedia/assets/images/temples/Iskcon-bengalore.jpg'); 
+}
+.temple7::before { 
+    background-image: url('https://www.templepurohit.com/wp-content/uploads/2015/12/KEdhanathTemple.jpg'); 
+}
+.temple8::before { 
+    background-image: url('https://th.bing.com/th/id/R.6eadd38e5798f3e9cc60269252d57c56?rik=atkmRGBU%2fVL6XQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-Bmk8P2djETc%2fUdLS3HSxS4I%2fAAAAAAAAATE%2ffGNpRFvXa8Y%2fs1024%2fGolden_Temple_Nightview.jpg&ehk=9QN8M4uZafxdGRL9GU6YPfVht%2bsK0OXhKPHlQvOAsBk%3d&risl=&pid=ImgRaw&r=0'); 
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .temple-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0px 10px 20px rgba(255, 215, 0, 0.5);
+  }
+  
+  .temple-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+.temple-card:hover::before {
+    transform: scale(1.1);
+    filter: brightness(0.7);
+  }
+  
+  .temple-card .content {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.temple-card:hover .content {
+    transform: translateY(-5px);
+  }
+  
+  .temple-card h3 {
+    margin: 0;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transition: color 0.3s ease;
+}
+
+.temple-card:hover h3 {
+    color: #FFD700;
+  }
+  
+  .temple-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  .know-more-btn {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #FF6F00;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.know-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.know-more-btn:hover::before {
+    left: 100%;
+}
+
+.know-more-btn:hover {
+    background-color: #FFA000;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
+}
+
+/* Spiritual Quote */
+.spiritual-quote {
+    background: #FF6F00;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 10px;
+    margin: 40px auto;
+    width: 80%;
+    box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4);
+    transition: all 0.3s ease;
+    animation: glowPulse 3s infinite;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(255, 111, 0, 0.6); }
+    100% { box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4); }
+}
+
+.spiritual-quote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 111, 0, 0.5);
+}
+
+/* Video Section */
+.video-section {
+    padding: 10px;
+    padding-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.video-section h2 {
+    color: #FFD700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    animation: titleGlow 2s infinite;
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+    50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+    100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+}
+
+/* Footer */
+footer {
+    background-color: #4B1D1D;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #FFD700;
+    animation: fadeIn 1s ease-out;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-section {
+    flex: 1 1 250px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+  }
+  
+  .footer-logo {
+    width: 100px;
+    margin-bottom: 15px;
+    animation: pulseLogo 2s infinite;
+  }
+  
+  .footer-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .footer-section h4 {
+    color: #ff9933;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-section h4:hover {
+    color: #FFD700;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.footer-section ul li:hover {
+    transform: translateX(5px);
+  }
+  
+  .footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #ff3333;
+  }
+  
+  .contact-list li {
+    margin-bottom: 10px;
+  }
+  
+  .subscribe-form {
+    display: flex;
+    margin-top: 10px;
+    border: 1px solid #555;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.subscribe-form:hover {
+    border-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  
+  .subscribe-form input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #2a2a2a;
+    color: #fff;
+  }
+  
+  .subscribe-form button {
+    background-color: #ff9933;
+    color: #1a1a1a;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+  }
+  
+  .subscribe-form button:hover {
+    background-color: #ff3333;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-section {
+      text-align: center;
+    }
+  
+    .subscribe-form {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  #spiritual-quote-section {
+    scroll-margin-top: 100px;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #4B1D1D;
+    min-width: 280px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 12px;
+    z-index: 1000;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    border: 1px solid #FFD700;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.contact-item, .temple-item {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.contact-item:hover, .temple-item:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.contact-item:last-child, .temple-item:last-child {
+    border-bottom: none;
+}
+
+.contact-item strong, .temple-item strong {
+    display: block;
+    color: #FFD54F;
+    margin-bottom: 6px;
+    font-size: 0.95em;
+}
+
+.contact-item a, .temple-item a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0;
+}
+
+.contact-item a:hover, .temple-item a:hover {
+    color: #FFD700;
+    transform: translateX(5px);
+    text-decoration: none;
+}
+
+.dropbtn {
+    display: inline-block;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    text-decoration: underline;
+    color: #FFA000;
+}
+
+.dropbtn::after {
+    display: none;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Header Styles */
+    header {
+        padding: 10px;
+    }
+
+    .logo-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .gif-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+        margin: 60px auto 20px;
+    }
+
+    .carousel-slide {
+        height: 400px;
+    }
+
+    .control-dots {
+        padding: 5px 10px;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* Temple Cards */
+    .temple-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .temple-card {
+        height: 250px;
+    }
+
+    .temple-card .content h3 {
+        font-size: 1.2rem;
+    }
+
+    .temple-card .content p {
+        font-size: 0.9rem;
+    }
+
+    /* Spiritual Quote Section */
+    .spiritual-quote {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    .spiritual-quote h2 {
+        font-size: 1.5rem;
+    }
+
+    .spiritual-quote p {
+        font-size: 1rem;
+    }
+
+    /* Video Section */
+    .video-section {
+        padding: 20px 10px;
+    }
+
+    .video-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        height: 250px;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 20px 10px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .footer-section h4 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+        padding: 0;
+    }
+
+    .footer-section li {
+        font-size: 0.9rem;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .subscribe-form input {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .subscribe-form button {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .carousel-slide {
+        height: 300px;
+    }
+
+    .temple-card {
+        height: 200px;
+    }
+
+    .temple-card .content h3 {
+        font-size: 1.1rem;
+    }
+
+    .temple-card .content p {
+        font-size: 0.8rem;
+    }
+
+    .video-section iframe {
+        height: 200px;
+    }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .carousel-slide {
+        height: 200px;
+    }
+
+    .temple-card {
+        height: 180px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .temple-card:hover {
+        transform: none;
+    }
+
+    .temple-card:active {
+        transform: scale(0.98);
+    }
+
+    .control-btn:hover {
+        background: rgba(0, 0, 0, 0.5);
+        color: #FFD700;
+    }
+
+    .control-btn:active {
+        background: #FFD700;
+        color: #000;
+    }
+}
+
+/* High-DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .carousel-slide img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .carousel-slide::after {
+        background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.8));
+    }
+
+    .control-dots {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track,
+    .carousel-slide,
+    .carousel-slide img,
+    .temple-card,
+    .control-btn,
+    .dot {
+        transition: none !important;
+    }
+}
